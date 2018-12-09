@@ -99,7 +99,7 @@ RxSigBB = RxSigPB.*exp(1i*2*pi*fc.*t);
 
 % Matched filter data and down-sample
 MF = fliplr(conj(pulse));                             % Matched filter
-MF_output = conv(pulse, RxSigBB)/fsfsy;               % Run through matched filter
+MF_output = conv(MF, RxSigBB)/fsfsy;               % Run through matched filter
 MF_output = MF_output(length(MF):end-length(MF)+1);   % Remove transients
 RxSymb = downsample(MF_output, fsfsy);                % Downsample
 
